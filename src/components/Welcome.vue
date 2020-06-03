@@ -70,13 +70,14 @@
 </template>
 
 <script>
+
     export default {
         data() {
             return {
                 isImageModalActive: true,
                 arrow: false,
                 animated: 'slide',
-                autoPlay: true,
+                autoPlay: false,
                 pauseHover: true,
                 pauseInfo: true,
                 pauseType: 'is-third',
