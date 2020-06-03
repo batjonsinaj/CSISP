@@ -1,9 +1,9 @@
-<!-- Same as deposit page but money removed instead of added (still adding a transaction) -->
 <template>
   <div>
    <div class = "columns">
       <div class = "column">
-     <div class="card">
+      <p class="title is-0.5" text-align = "middle">About Us</p>
+     <div class="card"> 
   <div class="card-image">
     <figure class="image is-4by3">
       <img src="https://qph.fs.quoracdn.net/main-thumb-146581994-200-gqxqhatsnmwtnvvmdseobkqjvfiylmnw.jpeg" alt="Placeholder image">
@@ -21,10 +21,9 @@
         <p class="subtitle is-6">@Bsinaj@bayviewglen.ca</p>
       </div>
     </div>
-
     <div class="content">
-      3rd year MIT computer science student Batjon Sinaj
-      Skilled in CSS, Javascript, Java and Python. <a></a>.
+      3rd year MIT computer science student.  
+      Skilled in CSS, Javascript, Java and Python. <a></a>
       <a href="#">#css</a> <a href="#">#HTML</a>
       <br>
     </div>
@@ -34,7 +33,6 @@
                 <p class="title">Have a question for Batjon?</p>
                 Write your email down and i'll message you as soon as i can! <a @click.prevent='BatjonSinaj()'>Click here.</a><br>
               </article>
-     
       </div>
       <div class = "column">
          <div class="tile is-ancestor">
