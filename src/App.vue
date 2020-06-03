@@ -35,16 +35,16 @@
 @import "~bulma/sass/utilities/_all";
 
 // Set your colors
-$primary: #8c67ef;
+$primary: #21779B;
 $primary-invert: findColorInvert($primary);
-$twitter: #4099ff;
+$twitter: #21779B;
 $twitter-invert: findColorInvert($twitter);
 
-$first: #9a841c;
+$first: #21779B;
 $first-invert: findColorInvert($first);
-$second: #482e06;
+$second: #21779B;
 $second-invert: findColorInvert($second);
-$third: #f7e79c;
+$third: #21779B;
 $third-invert: findColorInvert($third);
 // Setup $colors to use as bulma classes (e.g. 'is-twitter')
 $colors: (
@@ -78,7 +78,7 @@ $navbar-item-img-max-height: 3rem !important;
 // Classes
 .container {
   padding: 50px;
-  background-color: #9a841c;
+  background-color: #5E2371;
   border-radius: 25px;
 }
 
@@ -95,7 +95,7 @@ $navbar-item-img-max-height: 3rem !important;
 }
 
 body {
-  background-color: #f7e79c;
+  background-color: #5E2371;
   background-size: 100%;
   height: 1200px;
 }
