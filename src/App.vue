@@ -8,7 +8,7 @@
             <template slot="start">
                 <b-navbar-item tag="router-link" :to="{ path: '/' }">Welcome</b-navbar-item>
                 <b-navbar-item tag="router-link" :to="{ path: '/homePage' }">Home</b-navbar-item>
-                <b-navbar-dropdown label="Actions" >
+                <b-navbar-dropdown label="Other" >
                     <b-navbar-item tag="router-link" :to="{ path: '/Leaderboard' }" class="is-first navbar">Leaderboard</b-navbar-item>
                     <b-navbar-item tag="router-link" :to="{ path: '/aboutUS' }" class="is-first navbar">About us</b-navbar-item>
                 </b-navbar-dropdown>

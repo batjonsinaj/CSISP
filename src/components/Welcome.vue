@@ -26,22 +26,15 @@
         <div class="tile">
           <div class="tile is-parent is-vertical">
             <article class="tile is-child notification is-second">
-              <p class="title">Number 1 most addicting game in the world!</p>
-              <p class="subtitle"><br>With over 80 million vists on our website!.</p>
+              <p class="title">What is the thumbnail game?</p>
+              <p class="subtitle"><br>With over 80 million vists on our website and on generating over 100,000 visits almost biweekly on our website, the thumbnail game is a take on the psycology of youtube views. We wanted to understand why many youtube videos are randomly recomennded and gather millions of views while being seemingly unknown. The response was to make the thumbnail game which gathers the thumbnails of popular videos and we see which thumbnail players would choose.  </p>
             </article>
             <article class="tile is-child notification is-second">
               <p class="title">Play up to 15 thumbnails!</p>
-              <p class="subtitle"><br>15 thumbnails are generated for you to choose from!</p>
+              <p class="subtitle"><br>15 thumbnails are generated for you to choose from! Our program generates 15 random youtube thumbnails for you to choose from and click on which you would watch. This is a way of testing why specific videos on youtube get recomennded on your timeline and gather millions of views. We can see that the thumbnail of a video is enough to draw people in to click on the video.</p>
             </article>
           </div>
-          <div class="tile is-parent">
-            <article class="tile is-child notification is-second">
-              <p class="title">Confused? Just click on the video!</p>
-                 <video width="320" height="240" controls>
-     <source src=”http://techslides.com/demos/sample-videos/small.ogv” type=video/ogg>
-      <source src="https://www.youtube.com/results?search_query=thumbnail+game&page=&utm_source=opensearch" 
-      type=video/mp4>
-      </video>
+  
               <figure class="image is-4by3">
               </figure>
             </article>
@@ -49,22 +42,15 @@
         </div>
         <div class="tile is-parent">
           <article class="tile is-child notification is-second">
-            <p class="title">Not for profit.</p>
-            <p class="subtitle"><br>To support other independent websites and programmers, we have made this game non for profit, excluding all ads and forms of microtransactions as a way to to give our fans the best experience.</p>
+            <p class="title">How does it work?</p>
+            <p class="subtitle"><br>We have collected over 100 different thumbnails from youtube videos, and we generate them to you. You will see two thumbnails, and click whichever thumnail you are most likely to watch if was on youtube. A response will show up with the video links of all the thumbnails you clicked. In the form of a ranking alogrithm, you get to see and compare yourself to what other thumbnails players have clicked on. </p>
             <div class="content">
             </div>
           </article>
         </div>
       </div>
-      <div class="tile is-parent">
-        <article class="tile is-child notification is-second">
-          <div class="content">
-            <p class="title">How does it work?</p>
-            <p class="subtitle"><br> We have collected over 100 different thumbnails from youtube videos, and we generate them to you. You will see two thumbnails, and click whichever thumnail you are most likely to watch if was on youtube. At the end, a response will show up with the video links of all the thumbnails you clicked. </p>
-            <p class="subtitle"><br> Log in with your username and see where you rank on the leaderboard for how many thumbnails you've clicked that have been clicked by others. </p>
-          </div>
-        </article>
-      </div>
+      
+            </div>
     </div>
   </div>
 </template>
