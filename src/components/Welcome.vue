@@ -22,7 +22,7 @@
       </div>
     </section>
     <div class="tile is-ancestor">
-      <div class="tile is-vertical is-8">
+      <div class="tile is-vertical is-20">
         <div class="tile">
           <div class="tile is-parent is-vertical">
             <article class="tile is-child notification is-second">
@@ -34,7 +34,6 @@
               <p class="subtitle"><br>15 thumbnails are generated for you to choose from! Our program generates 15 random youtube thumbnails for you to choose from and click on which you would watch. This is a way of testing why specific videos on youtube get recomennded on your timeline and gather millions of views. We can see that the thumbnail of a video is enough to draw people in to click on the video.</p>
             </article>
           </div>
-  
               <figure class="image is-4by3">
               </figure>
             </article>
@@ -43,7 +42,7 @@
         <div class="tile is-parent">
           <article class="tile is-child notification is-second">
             <p class="title">How does it work?</p>
-            <p class="subtitle"><br>We have collected over 100 different thumbnails from youtube videos, and we generate them to you. You will see two thumbnails, and click whichever thumnail you are most likely to watch if was on youtube. A response will show up with the video links of all the thumbnails you clicked. In the form of a ranking alogrithm, you get to see and compare yourself to what other thumbnails players have clicked on. </p>
+            <p class="subtitle"><br>We have collected over 100 different thumbnails from youtube videos, and we generate them to you. You will see two thumbnails, and click whichever thumnail you are most likely to watch if was on youtube. A response will show up with the video links of all the thumbnails you clicked. In the form of a ranking alogrithm, you get to see and compare yourself to what other thumbnails players have clicked on. You can as well send a message to the programmers of the website by heading over to the "About Us" page and sending a message.  </p>
             <div class="content">
             </div>
           </article>
