@@ -14,13 +14,6 @@
                 </b-navbar-dropdown>
             </template>
             <template slot="end">
-                <b-navbar-item tag="div">
-                    <div class="buttons">
-                        <a class="is-first button" @click.prevent="reset()">
-                        <strong>Reset Account</strong>
-                        </a>
-                    </div>
-                </b-navbar-item>
             </template>
         </b-navbar>
         <br />
@@ -120,28 +113,6 @@ export default {
         });
 
     },
-    methods: {
-        reset(){//grab the id's of all transactions and delete them from DB, this leaves no items so no balanceAfter and no balance in bank
-            for(var t of this.transactions){
-                let uri = `http://localhost:4000/transactions/delete/`+t._id;
-                this.axios.delete(uri).then(response => {
-                this.transactions = response.data;
-                });
-            }
-            this.$buefy.snackbar.open({
-                message: `Press reset once more to complete the action.`,
-                position: 'is-top'
-            })
-            console.log("successfully reset account");
-             location.reload();
-
-             // for(var c of this.currencies){
-             //    let uri = `http://localhost:4000/currencies/delete/`+c._id;
-             //    this.axios.delete(uri).then(response => {
-             //    this.currencies = response.data;
-             //    });
-            // }
-        }
-    }
+  
 };
 </script>
