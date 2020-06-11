@@ -40,19 +40,21 @@ export default {
             let videoId = this.url.match(/youtube\.com.*(\?v=|\/embed\/)(.{11})/).pop();
             let img = 'http://img.youtube.com/vi/' + videoId + '/maxresdefault.jpg';
             document.getElementById('image').innerHTML = '<img src="http://img.youtube.com/vi/' + videoId + '/maxresdefault.jpg" width="640px"/>';
+
+            console.log(img);
             let uri = 'http://localhost:4000/thumbnails/create';
-                this.axios.post(uri, {"url":this.url, "img":this.img, "rank":100})
-                .then((res) => {
-                    let data = res.data.errmsg;
-                    if (data !== undefined) {
-                        console.log(data);
-                    } else {
-                        console.log("success");
-                    }
-                })
-                .catch((error) => {
-                    console.log(error);
-                });
+            this.axios.post(uri, {"url":this.url, "img":img, "rank":100})
+              .then((res) => {
+                let data = res.data.errmsg;
+                if (data !== undefined) {
+                  console.log(data);
+                } else {
+                  console.log("success");
+                }
+              })
+              .catch((error) => {
+                console.log(error);
+              });
         }
     }
 }

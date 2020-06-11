@@ -3,6 +3,7 @@ const router = express.Router();
 
 // Bring in the Thumbnail Model
 let Thumbnail = require('./thumbnail');
+const thumbnail = require('./thumbnail');
 
 // Create Form
 router.get('/create', function(req, res){
@@ -10,12 +11,12 @@ router.get('/create', function(req, res){
 });
 
 router.get('/', (req, res)=>{
-    Thumbnail.find(function(err, users){
+    Thumbnail.find(function(err, thumnails){
     if(err){
       res.json(err);
     }
     else {
-      res.json(users);
+      res.json(thumnails);
     }
   });
 });
@@ -25,14 +26,14 @@ router.post('/create', function(req, res){
     const url = req.body.url;
     const img = req.body.img;
     const rank = req.body.rank;
-
+    console.log(req.body);
     let query = {url:url};
-    Thumbnail.findOne(query, function(err, user){
+    Thumbnail.findOne(query, function(err, thumbnail){
         console.log(err);
-        console.log(user);
+        console.log(thumbnail);
         if(err){
             console.log(err)
-        } else if (user) {
+        } else if (thumbnail) {
             console.log("Error: URL already in use");
             res.json({errmsg:"URL already in use"});
         } else {
@@ -55,8 +56,11 @@ router.post('/create', function(req, res){
     });
 });
 
+router.get('/getLeaderboard')
+
 router.delete('/deleteAll', (req, res)=>{
     Thumbnail.collection.deleteMany({});
 });
+
 
 module.exports = router;
