@@ -17,7 +17,7 @@ Vue.config.productionTip = false;
 
 import Welcome from './components/Welcome.vue';
 import HomePage from './components/homePage.vue';
-import leaderboard from './components/leaderboard.vue';
+import ranking from './components/ranking.vue';
 import aboutUs from './components/aboutUs.vue';
 import upload from './components/upload.vue';
 
@@ -34,14 +34,9 @@ const routes = [
       component: HomePage
   },
   {
-    name: 'leaderboard',
-    path: '/leaderboard/:id',
-    component: leaderboard
-  },
-  {
-    name: 'leaderboard',
-    path: '/leaderboard',
-    component: leaderboard
+    name: 'ranking',
+    path: '/ranking',
+    component: ranking
   },
   {
     name: 'aboutUs',

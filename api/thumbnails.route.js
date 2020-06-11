@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
+const config = require('./DB.js');
 
+let db = config.DB;
 // Bring in the Thumbnail Model
 let Thumbnail = require('./thumbnail');
-const thumbnail = require('./thumbnail');
 
 // Create Form
 router.get('/create', function(req, res){
@@ -56,7 +57,11 @@ router.post('/create', function(req, res){
     });
 });
 
-router.get('/getLeaderboard')
+router.get('/thumbnailList', (req, res)=>{
+    Thumbnail.find().lean().exec(function (err, thumbnails) {
+        res.json(thumbnails);
+    });
+});
 
 router.delete('/deleteAll', (req, res)=>{
     Thumbnail.collection.deleteMany({});
