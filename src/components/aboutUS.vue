@@ -2,11 +2,12 @@
   <div>
    <div class = "columns">
       <div class = "column">
-      <p class="title is-0.5" text-align = "middle">About Us</p>
+      <p class="title is-0.5" text-align = "middle">About Us </p>
+      
      <div class="card"> 
   <div class="card-image">
     <figure class="image is-4by3">
-      <img src="https://qph.fs.quoracdn.net/main-thumb-146581994-200-gqxqhatsnmwtnvvmdseobkqjvfiylmnw.jpeg" alt="Placeholder image">
+      <img src="https://cdn1.edsby.com/cp1/d35e9a81fa3f261c542b899a0455d95700a9" alt="Placeholder image">
     </figure>
   </div>
   <div class="card-content">
@@ -36,7 +37,7 @@
       </div>
       <div class = "column">
          <div class="tile is-ancestor">
-            <div class="tile is-vertical is-10">
+            <div class="tile is-vertical is-30">
                <div class="tile">
                   <div class="tile is-parent is-vertical">
                      <div class="card">
@@ -60,7 +61,7 @@
     </div>
 
     <div class="content">
-      Mechanical engineering student 2nd year MIT.
+      2nd year MIT student in Mechanical engineering.
       Skilled in physics, engineering and CSS <a></a>.
       <a href="#">#css</a> <a href="#">#Engineering</a>
       <br>
