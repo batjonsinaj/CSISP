@@ -1,6 +1,5 @@
 <template>
   <div id = "all">
-    </b-modal>
     <section>
       <div id = "carousel">
         <b-carousel
@@ -36,7 +35,6 @@
           </div>
               <figure class="image is-4by3">
               </figure>
-            </article>
           </div>
         </div>
         <div class="tile is-parent">
@@ -48,9 +46,7 @@
           </article>
         </div>
       </div>   
-            </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -58,7 +54,6 @@
     export default {
         data() {
             return {
-                isImageModalActive: true,
                 arrow: false,
                 animated: 'slide',
                 autoPlay: false,

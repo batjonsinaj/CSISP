@@ -7,9 +7,10 @@
             </template>
             <template slot="start">
                 <b-navbar-item tag="router-link" :to="{ path: '/' }">Welcome</b-navbar-item>
-                <b-navbar-item tag="router-link" :to="{ path: '/homePage' }">Home</b-navbar-item>
+                <b-navbar-item tag="router-link" :to="{ path: '/homePage' }">Play</b-navbar-item>
+                <b-navbar-item tag="router-link" :to="{ path: '/upload' }">Upload</b-navbar-item>
                 <b-navbar-item tag="router-link" :to="{ path: '/Leaderboard' }">Leaderboard</b-navbar-item>
-                <b-navbar-item tag="router-link" :to="{ path: '/aboutUS' }">About us</b-navbar-item>
+                <b-navbar-item tag="router-link" :to="{ path: '/aboutUs' }">About us</b-navbar-item>
             </template>
             <template slot="end">
             </template>
@@ -26,16 +27,16 @@
 @import "~bulma/sass/utilities/_all";
 
 // Set your colors
-$primary: #21779B;
+$primary: #68cded;
 $primary-invert: findColorInvert($primary);
-$twitter: #21779B;
+$twitter: #68cded;
 $twitter-invert: findColorInvert($twitter);
 
-$first: #21779B;
+$first: #68cded;
 $first-invert: findColorInvert($first);
-$second: #21779B;
+$second: #11a1cf;
 $second-invert: findColorInvert($second);
-$third: #21779B;
+$third: #0a7ca1;
 $third-invert: findColorInvert($third);
 // Setup $colors to use as bulma classes (e.g. 'is-twitter')
 $colors: (
@@ -69,7 +70,7 @@ $navbar-item-img-max-height: 3rem !important;
 // Classes
 .container {
   padding: 50px;
-  background-color: #5E2371;
+  background-color: #ADD8E6;
   border-radius: 25px;
 }
 
@@ -86,7 +87,7 @@ $navbar-item-img-max-height: 3rem !important;
 }
 
 body {
-  background-color: #5E2371;
+  background-color: #ADD8E6;
   background-size: 100%;
   height: 1200px;
 }
@@ -97,20 +98,10 @@ body {
 export default {
     data() {
         return {
-            transactions: []
         }
     }, created(){
-        let uri = 'http://localhost:4000/transactions';
-        this.axios.get(uri).then(response => {
-            this.transactions = response.data;
-        });
 
-        uri = 'http://localhost:4000/currencies/initializeAll';
-        this.axios.post(uri).then(() => {
-            console.log("Currencies initialized!");
-        });
-
-    },
+    }
   
 };
 </script>

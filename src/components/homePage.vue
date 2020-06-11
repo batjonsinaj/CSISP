@@ -23,28 +23,14 @@ the right consists of a list of transactions imported from the DB, similar to th
 export default {
     data() {
         return {
-            transactions: [],
-            balance: 0
+            
         }
     },
     created() {
-        let uri = 'http://localhost:4000/transactions';
-        this.axios.get(uri).then(response => {
-            this.transactions = response.data;
-        });
+        
     },
     methods: {
-        leaderboard() {
-            this.$router.push({
-                name: 'leaderboard'
-            });
-        },
-        aboutUS() {
-            this.$router.push({
-                name: 'About Us'
-            });
-        },
- 
+
     }
 }
 </script>

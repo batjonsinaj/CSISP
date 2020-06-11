@@ -9,9 +9,6 @@
     </b-button>
     <p id = "title">Ranking</p>
     <br><br>
-    
-      </div>
-    </div>
     <hr>
    
   </section>
@@ -21,14 +18,11 @@ export default {
 
     data() {
         return {
-            transaction: {}
+
         }
     },
     created() {
-        let uri = `http://localhost:4000/transactions/edit/${this.$route.params.id}`;
-        this.axios.get(uri).then((response) => {
-            this.transaction = response.data;
-        });
+
     }
 }
 </script>

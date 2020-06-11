@@ -18,11 +18,11 @@ Vue.config.productionTip = false;
 import Welcome from './components/Welcome.vue';
 import HomePage from './components/homePage.vue';
 import leaderboard from './components/leaderboard.vue';
-import aboutUS from './components/aboutUS.vue';
+import aboutUs from './components/aboutUs.vue';
+import upload from './components/upload.vue';
 
 
 const routes = [
-
   {
       name: 'welcome',
       path: '/',
@@ -44,9 +44,14 @@ const routes = [
     component: leaderboard
   },
   {
-    name: 'aboutUS',
-    path: '/aboutUS',
-    component: aboutUS
+    name: 'aboutUs',
+    path: '/aboutUs',
+    component: aboutUs
+  },
+  {
+    name: 'upload',
+    path: '/upload',
+    component: upload
   }
 ];
 

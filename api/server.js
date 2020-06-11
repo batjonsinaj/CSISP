@@ -5,9 +5,6 @@ const PORT = 4000;
 const cors = require('cors');
 const mongoose = require('mongoose'); 
 const config = require('./DB.js');
-const transactionRoute = require('./transaction.route');
-const currencyRoute = require('./currency.route');
-
 
 mongoose.Promise = global.Promise;
 mongoose.connect(config.DB, { useNewUrlParser: true }).then(
@@ -18,12 +15,6 @@ mongoose.connect(config.DB, { useNewUrlParser: true }).then(
 app.use(cors());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
-
-app.use('/transactions', transactionRoute);
-app.use('/currencies', currencyRoute);
-
-let users = require('./users');
-app.use('/users', users)
 
 
 app.listen(PORT, function(){
