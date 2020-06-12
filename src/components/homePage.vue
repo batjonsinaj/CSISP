@@ -6,10 +6,10 @@ the right consists of a list of transactions imported from the DB, similar to th
 			<b-button type="is-second" size = "is-large" expanded>Game</b-button>
 			<br><br>   		
 			<b-tooltip label = "Check out your leaderboard score." type="is-warning">
-				<b-button class = "myButton" type="is-second" size = "is-large" @click.prevent="leaderboard()">Leaderboard</b-button>
+				<b-button class = "myButton" type="is-second" size = "is-large" @click="update()">Leaderboard</b-button>
 			</b-tooltip>
 			<b-tooltip label = "Come and learn more about the creators." type="is-warning">
-				<b-button class = "myButton" type="is-second" size = "is-large" @click.prevent="aboutUS()">About us</b-button>
+				<b-button class = "myButton" type="is-second" size = "is-large" @click="update()">About us</b-button>
 			</b-tooltip>
 			<br>
 
@@ -30,7 +30,21 @@ export default {
         
     },
     methods: {
-
+		update(){
+			let uri = 'http://localhost:4000/thumbnails/update';
+            this.axios.post(uri, {"url":"https://www.youtube.com/watch?v=E-TWCH_O1cw", "rank":150})
+              .then((res) => {
+                let data = res.data.errmsg;
+                if (data !== undefined) {
+                  console.log(data);
+                } else {
+                  console.log("success");
+                }
+              })
+              .catch((error) => {
+                console.log(error);
+              });
+		}
     }
 }
 </script>

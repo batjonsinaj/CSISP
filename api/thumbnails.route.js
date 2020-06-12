@@ -57,6 +57,28 @@ router.post('/create', function(req, res){
     });
 });
 
+router.post('/update', (req, res) => {
+    const url = req.body.url;
+    const newRank = req.body.newRank;
+    let query = {url:url};
+    Thumbnail.findOne(query, function(err, thumbnail){
+        console.log(err);
+        console.log(thumbnail);
+        if(err){
+            console.log(err)
+        } else if (thumbnail) {
+            let id = thumbnail.id;
+            console.log(id);
+            Thumbnail.update({url:url}, { $set: { rank : newRank  } });
+            Thumbnail.findOne({url:url}, function(err, thumbnail){
+                console.log(thumbnail);
+            });
+        } else {
+            res.json({errmsg: "No thumbnail found with that URL"})
+        }
+    });
+}); 
+
 router.get('/thumbnailList', (req, res)=>{
     Thumbnail.find().lean().exec(function (err, thumbnails) {
         res.json(thumbnails);
