@@ -83,7 +83,8 @@ export default {
 						}
 					}
 					console.log(this.validCombos);
-					function displayImages(data, validCombos) {
+					function displayImages(data, validCombos, parent) {
+						console.log(this);
 						let indexLeft = Math.floor(Math.random()*data.length);
 						let indexRight = Math.floor(Math.random()*data.length);
 						while(indexLeft === indexRight) {
@@ -102,10 +103,10 @@ export default {
 								document.getElementById("imageLeft").src=data[indexLeft].img;
 								document.getElementById("imageRight").src=data[indexRight].img;
 								document.getElementById("imageLeft").addEventListener("click",()=>{
-									methods.update(leftUrl, 150);
+									parent.update(leftUrl, 150);
 								});
 								document.getElementById("imageRight").addEventListener("click",()=>{
-									methods.update(rightUrl, 150);
+									parent.update(rightUrl, 150);
 								});
 								//document.getElementById('imageLeft').innerHTML = '<img src="' + data[indexLeft].img + '" width="640px" @click="update(' + leftUrl + ', 150)"/>';
 								//document.getElementById('imageRight').innerHTML = '<img src="' + data[indexRight].img + '" width="640px" @click="update(' + rightUrl + ', 150)"/>';
@@ -113,7 +114,7 @@ export default {
 						}
 						return validCombos;
 					};
-					this.validCombos = displayImages(this.data, this.validCombos);
+					this.validCombos = displayImages(this.data, this.validCombos, this.methods);
 					console.log(this.validCombos);
 					//document.getElementById('playButton').style.display = 'initial';
                 } else {
