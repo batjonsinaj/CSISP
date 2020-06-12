@@ -77,15 +77,15 @@ export default {
 							if (data[indexLeft].rank<data[indexRight].rank){
 								parent.update(leftUrl, data[indexLeft].rank + Math.abs(data[indexLeft].rank-data[indexRight].rank));
 								parent.update(rightUrl, data[indexRight].rank - Math.abs(data[indexLeft].rank-data[indexRight].rank));
-								return displayImages(data, parent, count);
+								displayImages(data, parent, count);
 							} else if (data[indexLeft].rank>data[indexRight].rank) {
 								parent.update(leftUrl, data[indexLeft].rank + (Math.abs(data[indexLeft].rank-data[indexRight].rank))/2);
 								parent.update(rightUrl, data[indexRight].rank - (Math.abs(data[indexLeft].rank-data[indexRight].rank))/2);
-								return displayImages(data, parent, count);
+								displayImages(data, parent, count);
 							} else {
 								parent.update(leftUrl, data[indexLeft].rank + 1);
 								parent.update(rightUrl, data[indexRight].rank - 1);
-								return displayImages(data, parent, count);
+								displayImages(data, parent, count);
 							}
 						});
 						document.getElementById("imageRight").addEventListener("click",()=>{
@@ -93,20 +93,20 @@ export default {
 							if (data[indexRight].rank<data[indexLeft].rank){
 								parent.update(rightUrl, data[indexRight].rank + Math.abs(data[indexRight].rank-data[indexLeft].rank));
 								parent.update(leftUrl, data[indexLeft].rank - Math.abs(data[indexRight].rank-data[indexLeft].rank));
-								return displayImages(data, parent, count);
+								displayImages(data, parent, count);
 							} else if (data[indexRight].rank>data[indexLeft].rank) {
 								parent.update(rightUrl, data[indexRight].rank + (Math.abs(data[indexRight].rank-data[indexLeft].rank))/2);
 								parent.update(leftUrl, data[indexLeft].rank - (Math.abs(data[indexRight].rank-data[indexLeft].rank))/2);
-								return displayImages(data, parent, count);
+								displayImages(data, parent, count);
 							} else {
 								parent.update(rightUrl, data[indexRight].rank + 1);
 								parent.update(leftUrl, data[indexLeft].rank - 1);
-								return displayImages(data, parent, count);
+								displayImages(data, parent, count);
 							}
 						});
 					}
 
-					displayImages(this.data, this, 1);
+					displayImages(this.data, this, 10);
 					document.getElementById('playButton').style.display = 'initial';
                 } else {
                   console.log("there are no thumbnails");
