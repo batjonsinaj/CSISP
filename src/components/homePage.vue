@@ -58,10 +58,7 @@ export default {
                 this.data = res.data;
                 if (this.data !== undefined) {
 
-					function displayImages(data, parent, count) {
-						if (count <= 0) {
-							return;
-						}
+					function displayImages(data, parent) {
 						//console.log(parent);
 						let indexLeft = Math.floor(Math.random()*data.length);
 						let indexRight = Math.floor(Math.random()*data.length);
@@ -73,40 +70,38 @@ export default {
 						document.getElementById("imageLeft").src=data[indexLeft].img;
 						document.getElementById("imageRight").src=data[indexRight].img;
 						document.getElementById("imageLeft").addEventListener("click",()=>{
-							count -= 1;
 							if (data[indexLeft].rank<data[indexRight].rank){
 								parent.update(leftUrl, data[indexLeft].rank + Math.abs(data[indexLeft].rank-data[indexRight].rank));
 								parent.update(rightUrl, data[indexRight].rank - Math.abs(data[indexLeft].rank-data[indexRight].rank));
-								displayImages(data, parent, count);
+								displayImages(data, parent);
 							} else if (data[indexLeft].rank>data[indexRight].rank) {
 								parent.update(leftUrl, data[indexLeft].rank + (Math.abs(data[indexLeft].rank-data[indexRight].rank))/2);
 								parent.update(rightUrl, data[indexRight].rank - (Math.abs(data[indexLeft].rank-data[indexRight].rank))/2);
-								displayImages(data, parent, count);
+								displayImages(data, parent);
 							} else {
 								parent.update(leftUrl, data[indexLeft].rank + 1);
 								parent.update(rightUrl, data[indexRight].rank - 1);
-								displayImages(data, parent, count);
+								displayImages(data, parent);
 							}
 						});
 						document.getElementById("imageRight").addEventListener("click",()=>{
-							count -= 1;
 							if (data[indexRight].rank<data[indexLeft].rank){
 								parent.update(rightUrl, data[indexRight].rank + Math.abs(data[indexRight].rank-data[indexLeft].rank));
 								parent.update(leftUrl, data[indexLeft].rank - Math.abs(data[indexRight].rank-data[indexLeft].rank));
-								displayImages(data, parent, count);
+								displayImages(data, parent);
 							} else if (data[indexRight].rank>data[indexLeft].rank) {
 								parent.update(rightUrl, data[indexRight].rank + (Math.abs(data[indexRight].rank-data[indexLeft].rank))/2);
 								parent.update(leftUrl, data[indexLeft].rank - (Math.abs(data[indexRight].rank-data[indexLeft].rank))/2);
-								displayImages(data, parent, count);
+								displayImages(data, parent);
 							} else {
 								parent.update(rightUrl, data[indexRight].rank + 1);
 								parent.update(leftUrl, data[indexLeft].rank - 1);
-								displayImages(data, parent, count);
+								displayImages(data, parent);
 							}
 						});
 					}
 
-					displayImages(this.data, this, 10);
+					displayImages(this.data, this);
 					document.getElementById('playButton').style.display = 'initial';
                 } else {
                   console.log("there are no thumbnails");
