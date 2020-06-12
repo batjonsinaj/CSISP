@@ -40,10 +40,10 @@ export default {
                 if (this.data !== undefined) {
                   function compareRank(a, b){
                     // a should come before b in the sorted order
-                    if(a.rank < b.rank){
+                    if(a.rank > b.rank){
                       return -1;
                     // a should come after b in the sorted order
-                    }else if(a.rank > b.rank){
+                    }else if(a.rank < b.rank){
                       return 1;
                     // a and b are the same
                     }else{

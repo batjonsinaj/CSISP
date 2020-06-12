@@ -69,7 +69,11 @@ router.post('/update', (req, res) => {
             console.log(err)
         } else if (thumbnail) {
             console.log(newRank);
-            Thumbnail.collection.updateOne({url:url}, {$set: {rank:newRank}}, {upsert: true});
+            if(newRank <= 0) {
+                Thumbnail.collection.updateOne({url:url}, {$set: {rank:0}}, {upsert: true});
+            } else {
+                Thumbnail.collection.updateOne({url:url}, {$set: {rank:newRank}}, {upsert: true});
+            }
             res.json("Success");
         } else {
             res.json({errmsg: "No thumbnail found with that URL"})

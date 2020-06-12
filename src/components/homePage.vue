@@ -27,7 +27,6 @@ the right consists of a list of transactions imported from the DB, similar to th
 export default {
     data() {
         return {
-			validCombos: [],
 			data: ""
         }
     },
@@ -36,7 +35,7 @@ export default {
     },
     methods: {
 		update(url, newRank){
-			console.log("ur in");
+			console.log("updating");
 			let uri = 'http://localhost:4000/thumbnails/update';
             this.axios.post(uri, {"url":url, "newRank":newRank})
               .then((res) => {
@@ -58,66 +57,57 @@ export default {
               .then((res) => {
                 this.data = res.data;
                 if (this.data !== undefined) {
-                  	function compareRank(a, b){
-                    	// a should come before b in the sorted order
-                    	if(a.rank < b.rank){
-                      		return -1;
-                    	// a should come after b in the sorted order
-                    	}else if(a.rank > b.rank){
-                      		return 1;
-                    	// a and b are the same
-                    	}else{
-                    		return 0;
-                    	}
-                  	}
-					console.log(this.data.sort(compareRank));
-					this.validCombos = new Array(this.data.length*(this.data.length-1)/2);
-					var i, j;
-					let index = 0;
-					for(i = 0; i < this.data.length; i++){
-						for(j = i + 1; j < this.data.length; j++){
-							this.validCombos[index] = new Array(2);
-							this.validCombos[index].push(this.data[i].url);
-							this.validCombos[index].push(this.data[j].url);
-							index++;
+
+					function displayImages(data, parent, count) {
+						if (count <= 0) {
+							return;
 						}
-					}
-					console.log(this.validCombos);
-					console.log(this.update);
-					function displayImages(data, validCombos, parent) {
-						console.log(this);
+						//console.log(parent);
 						let indexLeft = Math.floor(Math.random()*data.length);
 						let indexRight = Math.floor(Math.random()*data.length);
 						while(indexLeft === indexRight) {
 							indexRight = Math.floor(Math.random()*data.length);
 						}
-						let displayable = false;
-						var i;
-						for(i = 0; i<validCombos.length; i++){
-							if((validCombos[i][2] === data[indexLeft].url && validCombos[i][3] === data[indexRight].url) || (validCombos[i][3] === data[indexLeft].url && validCombos[i][2] === data[indexRight].url)){
-								displayable = true;
-								validCombos.splice(i, 1);
-								console.log(data[indexLeft].img);
-								console.log(data[indexRight].img);
-								let leftUrl = '"'+data[indexLeft].url+'"';
-								let rightUrl = '"'+data[indexRight].url+'"';
-								document.getElementById("imageLeft").src=data[indexLeft].img;
-								document.getElementById("imageRight").src=data[indexRight].img;
-								document.getElementById("imageLeft").addEventListener("click",()=>{
-									parent.update(leftUrl, 150);
-								});
-								document.getElementById("imageRight").addEventListener("click",()=>{
-									parent.update(rightUrl, 150);
-								});
-								//document.getElementById('imageLeft').innerHTML = '<img src="' + data[indexLeft].img + '" width="640px" @click="update(' + leftUrl + ', 150)"/>';
-								//document.getElementById('imageRight').innerHTML = '<img src="' + data[indexRight].img + '" width="640px" @click="update(' + rightUrl + ', 150)"/>';
+						let leftUrl = data[indexLeft].url;
+						let rightUrl = data[indexRight].url;
+						document.getElementById("imageLeft").src=data[indexLeft].img;
+						document.getElementById("imageRight").src=data[indexRight].img;
+						document.getElementById("imageLeft").addEventListener("click",()=>{
+							count -= 1;
+							if (data[indexLeft].rank<data[indexRight].rank){
+								parent.update(leftUrl, data[indexLeft].rank + Math.abs(data[indexLeft].rank-data[indexRight].rank));
+								parent.update(rightUrl, data[indexRight].rank - Math.abs(data[indexLeft].rank-data[indexRight].rank));
+								return displayImages(data, parent, count);
+							} else if (data[indexLeft].rank>data[indexRight].rank) {
+								parent.update(leftUrl, data[indexLeft].rank + (Math.abs(data[indexLeft].rank-data[indexRight].rank))/2);
+								parent.update(rightUrl, data[indexRight].rank - (Math.abs(data[indexLeft].rank-data[indexRight].rank))/2);
+								return displayImages(data, parent, count);
+							} else {
+								parent.update(leftUrl, data[indexLeft].rank + 1);
+								parent.update(rightUrl, data[indexRight].rank - 1);
+								return displayImages(data, parent, count);
 							}
-						}
-						return validCombos;
-					};
-					this.validCombos = displayImages(this.data, this.validCombos, this.methods);
-					console.log(this.validCombos);
-					//document.getElementById('playButton').style.display = 'initial';
+						});
+						document.getElementById("imageRight").addEventListener("click",()=>{
+							count -= 1;
+							if (data[indexRight].rank<data[indexLeft].rank){
+								parent.update(rightUrl, data[indexRight].rank + Math.abs(data[indexRight].rank-data[indexLeft].rank));
+								parent.update(leftUrl, data[indexLeft].rank - Math.abs(data[indexRight].rank-data[indexLeft].rank));
+								return displayImages(data, parent, count);
+							} else if (data[indexRight].rank>data[indexLeft].rank) {
+								parent.update(rightUrl, data[indexRight].rank + (Math.abs(data[indexRight].rank-data[indexLeft].rank))/2);
+								parent.update(leftUrl, data[indexLeft].rank - (Math.abs(data[indexRight].rank-data[indexLeft].rank))/2);
+								return displayImages(data, parent, count);
+							} else {
+								parent.update(rightUrl, data[indexRight].rank + 1);
+								parent.update(leftUrl, data[indexLeft].rank - 1);
+								return displayImages(data, parent, count);
+							}
+						});
+					}
+
+					displayImages(this.data, this, 1);
+					document.getElementById('playButton').style.display = 'initial';
                 } else {
                   console.log("there are no thumbnails");
                 }
@@ -125,11 +115,6 @@ export default {
               .catch((error) => {
                 console.log(error);
 			  });
-		},
-		displayImages(){
-			let indexLeft = Math.random()*this.data.length();
-			console.log(indexLeft);
-			//document.getElementById('imageLeft').innerHTML = '<img src="http://img.youtube.com/vi/' + videoIdLeft + '/maxresdefault.jpg" width="640px"/>';
 		},
 		aboutUs(){
 			window.location.href = "http://localhost:8080/aboutUs";
