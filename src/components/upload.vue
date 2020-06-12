@@ -72,7 +72,7 @@ export default {
     font-size: 50px;
     font-weight: bold;
     text-align: center;
-    margin-left: 140px;
+    margin-left: 400px;
   }
   #image{
     width: 500px;

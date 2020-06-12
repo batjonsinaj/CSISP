@@ -60,6 +60,7 @@ router.post('/create', function(req, res){
 router.post('/update', (req, res) => {
     const url = req.body.url;
     const newRank = req.body.newRank;
+    console.log(req.body);
     let query = {url:url};
     Thumbnail.findOne(query, function(err, thumbnail){
         console.log(err);
@@ -67,12 +68,9 @@ router.post('/update', (req, res) => {
         if(err){
             console.log(err)
         } else if (thumbnail) {
-            let id = thumbnail.id;
-            console.log(id);
-            Thumbnail.update({url:url}, { $set: { rank : newRank  } });
-            Thumbnail.findOne({url:url}, function(err, thumbnail){
-                console.log(thumbnail);
-            });
+            console.log(newRank);
+            Thumbnail.collection.updateOne({url:url}, {$set: {rank:newRank}}, {upsert: true});
+            res.json("Success");
         } else {
             res.json({errmsg: "No thumbnail found with that URL"})
         }

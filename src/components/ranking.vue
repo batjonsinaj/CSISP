@@ -37,7 +37,7 @@ export default {
             this.axios.get(uri)
               .then((res) => {
                 this.data = res.data;
-                if (data !== undefined) {
+                if (this.data !== undefined) {
                   function compareRank(a, b){
                     // a should come before b in the sorted order
                     if(a.rank < b.rank){
@@ -50,7 +50,7 @@ export default {
                       return 0;
                     }
                   }
-                  console.log(data.sort(compareRank));
+                  console.log(this.data.sort(compareRank));
                 } else {
                   console.log("success");
                 }
