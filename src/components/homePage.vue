@@ -83,6 +83,7 @@ export default {
 						}
 					}
 					console.log(this.validCombos);
+					console.log(this.update);
 					function displayImages(data, validCombos, parent) {
 						console.log(this);
 						let indexLeft = Math.floor(Math.random()*data.length);
